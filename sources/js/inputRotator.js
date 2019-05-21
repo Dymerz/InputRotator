@@ -53,6 +53,7 @@ $.fn.inputRotator = function(params={})
     this.setProgressRelativeValue  = setProgressRelativeValue;
 	this.setValue = setValue;
 	
+	getPath();
 	
 	if(this.type == undefined || this.obj.attr("type") =="circlePointer")
 		this.generateObject();
@@ -237,7 +238,7 @@ $.fn.inputRotator = function(params={})
 		}
 				
 		// Get the meter path
-		var path = $('.meter', this.obj).get(0);
+		var path = $('path', this.obj).get(0);
 		
 		// Get the length of the path
 		let length = path.getTotalLength();
@@ -308,22 +309,54 @@ $.fn.inputRotator = function(params={})
 				break;
 		}
 
-		var content = ` 
-			<img src='../sources/images/base.svg' draggable='false' class='circlebutton-buttRotat circlebutton-border'>
-			<div class='circlebutton-contentPointer' draggable='false'>
-				<img src='../sources/images/pointer.svg' draggable='false' class='circlebutton-buttRotat circlebutton-pointer'>
-			</div>
-			<img src='../sources/images/progress_background.svg' draggable='false' class='circlebutton-buttRotat circlebutton-empty'>
-			
+/**
+ * 
+ * 
 			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 178.96 178.96'>
-				<path class='meter' stroke='black' ${transform} fill='none' d='M89.48,175A85.48,85.48,0,1,1,175,89.48,85.53,85.53,0,0,1,89.48,175'/>
+			<path class='meter' stroke='black' ${transform} fill='none' d='M89.48,175A85.48,85.48,0,1,1,175,89.48,85.53,85.53,0,0,1,89.48,175'/>
+		</svg>
+
+ */
+
+		var path = getPath();
+		
+		var content = ` 
+			<img src='${path}images/base.svg' draggable='false' class='circlebutton-buttRotat circlebutton-border'>
+			<div class='circlebutton-contentPointer' draggable='false'>
+				<img src='${path}images/pointer.svg' draggable='false' class='circlebutton-buttRotat circlebutton-pointer'>
+			</div>
+			
+		<svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 99.43 89.72">
+			<defs>
+				<style>.cls-1{fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px;stroke:url(#FmiXGradient);}</style>
+				<linearGradient id="FmiXGradient" y1="44.86" x2="99.43" y2="44.86" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="#c730ff" />
+					<stop offset="0.5" stop-color="#412fff" />
+					<stop offset="1" stop-color="#2c9eff" />
+				</linearGradient>
+			</defs>
+			<title>Fichier 75graphCache</title>
+				<path class="cls-1" ${transform} d="M20.85,87.72a47.72,47.72,0,1,1,57.73,0" />
 			</svg>
+			
+			<img src='${path}images/progress_background.svg' draggable='false' class='circlebutton-buttRotat circlebutton-empty'>
 		`;
 
 		this.obj.addClass("circlebutton-content");
 		this.obj.attr("draggable", "false");
 		this.obj.attr("ondragstart", "return false;");
 		this.obj.append(content);
+
+		function newFunction() {
+			console.log(path);
+		}
+	}
+
+	function getPath()
+	{
+		var path = (src = $('script[src$="inputRotator.js"]').attr('src')).substring(0, src.lastIndexOf("/") + 1)+"../";
+		return path;
+		
 	}
 }
 

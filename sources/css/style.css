@@ -43,7 +43,9 @@
 	margin: 0 auto;
 }
 .circlebutton-empty{
-    width:100%;
+	width:100%;
+	z-index: -1;
+	left: 0;
 }
 .circlebutton-full{
     width:100%;
