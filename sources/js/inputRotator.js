@@ -28,9 +28,10 @@ $.fn.inputRotator = function(params={})
 
 	if(params.ended === undefined) this.ended = null;
 	else this.ended = params.ended;
+
+	if(params.value === undefined) this.value = null;
+	else this.value = params.value;
 	
-    // Variables
-	this.value = 0;
 
     this.obj = this; //document.getElementById(id);
     this.mouseStatus = 0;
@@ -65,7 +66,7 @@ $.fn.inputRotator = function(params={})
 	
 	
 	// Set default value at 0%
-	this.setValue(0);
+	this.setValue(this.value);
 	this.obj.attr("type", "circlePointer");
 	return this;
 

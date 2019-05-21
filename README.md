@@ -60,6 +60,7 @@ A complete example is available in the `index.html`.
 Parameters
 ===========
 
+- `value`: Default value.
 - `sensibility`: Sensibility of the cursor (default: 1).
 - `horizontalMin`: Value in pixel of the minimum horizontal axe (default: 50).
 - `horizontalMax`: Value in pixel of the maximum horizontal axe (default: -50).
