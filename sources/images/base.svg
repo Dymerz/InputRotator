@@ -1,0 +1,9 @@
+<svg
+	xmlns='http://www.w3.org/2000/svg' 
+		viewBox='0 0 118.79 118.79'>
+	<defs>
+		<style>.cls-1{fill:#e5e4e4;}.cls-2{fill:#bababa;}</style>
+	</defs>
+	<circle class='cls-1' cx='59.4' cy='59.4' r='58.4'/>
+	<path class='cls-2' d='M59.4,2A57.4,57.4,0,1,1,2,59.4,57.4,57.4,0,0,1,59.4,2m0-2a59.4,59.4,0,1,0,59.39,59.4A59.46,59.46,0,0,0,59.4,0Z'/>
+</svg>

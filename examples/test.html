@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta balise -->
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- link -->
+    <link rel="stylesheet" type="text/css" href="../sources/css/style.css"/>
+
+    <!-- other -->
+    <title>Test</title>
+
+    <!-- import library -->
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js'></script>
+    <script src='../sources/js/inputRotator.js'></script>
+</head>
+<body>
+	<div id="test" style="background-color: red; width: 500px;">
+		<div id="circlebutton_1"></div>
+	</div>
+    
+    <script>
+		var c1 = $("#circlebutton_1").inputRotator({
+			sensibility: 4,
+			degreeMax : 360,
+			defaultPosition: "center",
+			onchange: function(value) {
+				console.log("circlebutton_1: "+value+"%");
+			},
+			started: function(value, start) {
+				console.log("circlebutton_1: started("+value+";"+start+")");
+			},
+			ended: function(value, start, end) {
+				console.log("circlebutton_1: ended("+value+";"+start + ";"+end+")");
+			}
+		});
+    </script>
+</body>
+</html>
