@@ -28,6 +28,12 @@ $("#track").inputRotator();
 ```
 
 Example of use:
+
+```html
+<div id="test" style="width: 500px;">
+    <div id="circle"></div>
+</div>
+```
 ```js
 var c2 = $("#circle").inputRotator({
     sensibility: 5,
@@ -36,13 +42,13 @@ var c2 = $("#circle").inputRotator({
     defaultPosition: "center",
 	
     onchange: function(value) {
-        console.log("circle: "+value+"%");
+        console.log(`circle: onchange(${value})`);
     },
     started: function(start) {
-        console.log("circle: started("+start+")");
+        console.log(`circle: started(${start})`);
     },
-    ended: function(start, end) {
-        console.log("circle: ended("+start + ";"+end+")");
+    ended: function(value, start, end) {
+        console.log(`circle: ended(${value};${start};${end})`);
     }
 }
 });
