@@ -244,11 +244,12 @@ $.fn.inputRotator = function(params={})
 	 */
 	function setProgressRelativeValue()
 	{
+		var path = $('#meter', this.obj).get(0);
+
 		//
 		// Progresss movement
 		//
 		var val = 0;
-
 		switch (this.defaultPosition) {
 			case 'left':
 				val = this.value;
@@ -257,24 +258,44 @@ $.fn.inputRotator = function(params={})
 				val = -this.value;
 				break;
 			case 'center':
-				val = (this.value / 2) - 50;
+				val = (this.value/2);
+
+				var degree = 180;
+				path.style.webkitTransform = 'rotate('+degree+'deg)'; 
+				path.style.mozTransform    = 'rotate('+degree+'deg)'; 
+				path.style.msTransform     = 'rotate('+degree+'deg)'; 
+				path.style.oTransform      = 'rotate('+degree+'deg)'; 
+				path.style.transform       = 'rotate('+degree+'deg)'; 
+				// console.log("Degree: "+degree);
+				
+				$("#clipPath").css("display", "none");
 				break;
 		}
-				
+		console.log("Value: "+val);
+
 		// Get the meter path
-		var path = $('#meter', this.obj).get(0);
 		
+		
+
+
 		// Get the length of the path
 		let length = path.getTotalLength();
 		
 		path.style.strokeDashoffset = length;
 		path.style.strokeDasharray = length;
+		console.log("Length: "+ length);
 
 		// Get the value of the meter
-		let to = length * ((100 - val) / 100);
-		// console.log(to);
-		// if(to>260 || to < 30)
-		// 	return;
+		if(this.defaultPosition == "center")
+		{
+			var min = length / 2; 
+			var to = length + (min * (this.value / -100));
+		}
+		else
+			var to = length * ((100 - val) / 100);
+
+		
+		console.log("To: " + to);
 
 		path.getBoundingClientRect();
 		path.style.strokeDashoffset = Math.max(0, to);
@@ -327,14 +348,15 @@ $.fn.inputRotator = function(params={})
 	function generateObject()
 	{
 		var transform= "";
-		switch (this.defaultPosition) {
+		switch (this.defaultPosition) 
+		{
 			case 'center':
-				transform = "translate(99.43, 89.72) scale(-1,-1)";
+				// transform = "translate(99.43, 89.72) scale(-1,-1)";
 				break;
 			case 'right':
 				transform = "translate(0, 0) scale(-1,1)";
 				break;
-	}
+		}
 
 /**
  * 
@@ -344,7 +366,7 @@ $.fn.inputRotator = function(params={})
 		</svg>
 
  */
-
+	console.log(transform);
 		var path = getPath();
 		
 		var content = ` 
@@ -361,15 +383,15 @@ $.fn.inputRotator = function(params={})
 						<stop offset="0.5" stop-color="#412fff" />
 						<stop offset="1" stop-color="#2c9eff" />
 					</linearGradient>
-			
+
 					<g transform="${transform}"> 
 						<clipPath id="clipPath">
 								<path class="cls-2" d="M20.85,89.72a2,2,0,0,1-1.21-.41A49.72,49.72,0,1,1,99.43,49.72,49.39,49.39,0,0,1,79.79,89.31a2,2,0,0,1-2.42-3.19A45.72,45.72,0,1,0,4,49.72,45.42,45.42,0,0,0,22.06,86.13a2,2,0,0,1-1.21,3.59Z" />
 						</clipPath>
-					</g> 
+					</g>
 				</defs>
 				
-				<g transform="scale(1,1)"> 
+				<g> 
 					<path id="meter" clip-path="url(#clipPath)" class="cls-1 meter" d="M49.7,97.43A47.72,47.72,0,1,1,97.43,49.72,47.71,47.71,0,0,1,49.7,97.43" />
 				</g>
 			</svg>

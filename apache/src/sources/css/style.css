@@ -63,5 +63,6 @@
 	stroke: #bababa;
 	stroke-miterlimit:10;
 	stroke-width:8px;
-    transform-origin: center;
+	
+    transform-origin: 50% 50%;
 }

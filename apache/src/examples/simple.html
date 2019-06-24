@@ -43,29 +43,19 @@
 
 		inputs_circle['circlebutton_1'] = $("#circlebutton_1").inputRotator({
 			sensibility: 1,
-			degreeMax: 330,
-			degreeMin: 30,
-			value: 20,
-			defaultPosition: "right",
+			value: 0,
+			defaultPosition: "left",
 			onchange: function(value) {
-				console.log("circlebutton_1: "+value+"%");
+				// console.log("circlebutton_1: "+value+"%");
 			},
 			started: function(value, start) {
-				console.log("circlebutton_1: started("+value+";"+start+")");
+				// console.log("circlebutton_1: started("+value+";"+start+")");
 			},
 			ended: function(value, start, end) {
-				console.log("circlebutton_1: ended("+value+";"+start + ";"+end+")");
+				// console.log("circlebutton_1: ended("+value+";"+start + ";"+end+")");
 			}
 		});
-		inputs_circle['circlebutton_1'].default_value = 20;
-
-		function reset()
-		{
-			$("#panel1 .circlebutton-content").each(function (index, element) {
-				var value = inputs_circle[this.id].default_value;
-				inputs_circle[this.id].setValue(value);
-			});
-		}
+		inputs_circle['circlebutton_1'].default_value = 0;
 		
 		var c2 = $("#circlebutton_2").inputRotator({
 			sensibility: 5,
@@ -73,7 +63,7 @@
 			degreeMax : 360,
 			defaultPosition: "center",
 			onchange: function(val) {
-				console.log("circlebutton_2: "+val);
+				// console.log("circlebutton_2: "+val);
 			}
 		});
 
@@ -82,9 +72,17 @@
 			degreeMax : 360,
 			defaultPosition: "right",
 			onchange: function(val) {
-				console.log("circlebutton_3: "+val);
+				// console.log("circlebutton_3: "+val);
 			}
 		});
+
+		function reset()
+		{
+			$("#panel1 .circlebutton-content").each(function (index, element) {
+				var value = inputs_circle[this.id].default_value;
+				inputs_circle[this.id].setValue(value);
+			});
+		}
     </script>
 </body>
 </html>
