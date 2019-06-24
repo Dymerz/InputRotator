@@ -1,0 +1,67 @@
+.circlebutton-content{
+    position:relative;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+
+	touch-action: none;
+	overscroll-behavior: contain;
+}
+
+.circlebutton-border{
+    position:absolute;
+    width:80%;
+    display:block;
+    margin:0 auto;
+    left:0;
+    right:0;
+	top:10%;
+	
+	background-size: contain;
+}
+
+.circlebutton-contentPointer{
+    position:absolute;
+	bottom:0;
+	
+	right: 0;
+	margin: 0 auto;
+	width: 50%;
+
+	padding:25%;
+
+    transform-origin:top center;
+    transform: rotate(0deg);
+}
+.circlebutton-pointer{
+    position:absolute;
+	width:9.5%;
+	
+	top: 0;
+	right: 0;
+	left: 0;
+	
+	margin: 0 auto;
+}
+.circlebutton-empty{
+	width:100%;
+	z-index: -1;
+	left: 0;
+    top: 0;
+}
+.circlebutton-full{
+    width:100%;
+}
+
+.circlebutton-buttRotat{
+    position:absolute;
+}
+
+.meter{
+	fill: none;
+	stroke: #bababa;
+	stroke-miterlimit:10;
+	stroke-width:8px;
+    transform-origin: center;
+}

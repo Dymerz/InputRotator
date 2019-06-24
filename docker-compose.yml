@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+
+  apache:
+      container_name: apache
+      image: httpd
+      restart: always
+      volumes:
+        - ./apache/src:/usr/local/apache2/htdocs/
+      environment:
+        TZ: "Europe/Brussels"
+      ports:
+        - "80:80"
+      expose:
+        - 80

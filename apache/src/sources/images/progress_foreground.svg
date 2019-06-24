@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 99.43 99.43">
+	<defs>
+		<style>.cls-2{fill:#e5e5e5;}.cls-1{fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px;stroke:url(#FmiXGradient);}</style>
+      	<linearGradient id="FmiXGradient" y1="49.72" x2="99.43" y2="49.72" gradientUnits="userSpaceOnUse">
+        	<stop offset="0" stop-color="#c730ff" />
+			<stop offset="0.5" stop-color="#412fff" />
+			<stop offset="1" stop-color="#2c9eff" />
+    	</linearGradient>
+
+		<g transform="scale(1,1)"> 
+			<clipPath id="clipPath">
+					<path class="cls-2" d="M20.85,89.72a2,2,0,0,1-1.21-.41A49.72,49.72,0,1,1,99.43,49.72,49.39,49.39,0,0,1,79.79,89.31a2,2,0,0,1-2.42-3.19A45.72,45.72,0,1,0,4,49.72,45.42,45.42,0,0,0,22.06,86.13a2,2,0,0,1-1.21,3.59Z" />
+			</clipPath>
+		</g> 
+	</defs>
+	
+	<g transform="scale(1,1)"> 
+		<path  clip-path="url(#clipPath)" class="cls-1" d="M49.7,97.43A47.72,47.72,0,1,1,97.43,49.72,47.71,47.71,0,0,1,49.7,97.43" />
+	</g>
+</svg>

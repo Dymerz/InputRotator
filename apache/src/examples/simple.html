@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- meta balise -->
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- link -->
+    <link rel="stylesheet" type="text/css" href="../sources/css/style.css"/>
+
+    <!-- other -->
+    <title>Test</title>
+
+    <!-- import library -->
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js'></script>
+    <script src='../sources/js/inputRotator.js'></script>
+</head>
+<body id="panel1">
+	<div style="width: 200px">
+		<div class="circlebutton-content" id="circlebutton_1"></div><br><br>
+		<button onclick="javascript:c1.setValue(0);">Reset</button>
+		<button onclick="javascript:c1.setValue(c1.value-25);">-25%</button>
+		<button onclick="javascript:c1.setValue(c1.value+25);">+25%</button>
+	</div>
+	<br><br>
+
+	<div style="width: 200px">
+		<div id="circlebutton_2"></div><br><br>
+		<button onclick="javascript:c2.setValue(0);">Reset</button>
+		<button onclick="javascript:c2.setValue(c2.value-25);">-25%</button>
+		<button onclick="javascript:c2.setValue(c2.value+25);">+25%</button>
+	</div>
+	<br><br>
+	
+	<div style="width: 200px">
+		<div id="circlebutton_3"></div><br><br>
+		<button onclick="javascript:c3.setValue(0);">Reset</button>
+		<button onclick="javascript:c3.setValue(c3.value-25);">-25%</button>
+		<button onclick="javascript:c3.setValue(c3.value+25);">+25%</button>
+	</div>
+    
+    <script>
+		var inputs_circle = {};
+
+		inputs_circle['circlebutton_1'] = $("#circlebutton_1").inputRotator({
+			sensibility: 1,
+			degreeMax: 330,
+			degreeMin: 30,
+			value: 20,
+			defaultPosition: "right",
+			onchange: function(value) {
+				console.log("circlebutton_1: "+value+"%");
+			},
+			started: function(value, start) {
+				console.log("circlebutton_1: started("+value+";"+start+")");
+			},
+			ended: function(value, start, end) {
+				console.log("circlebutton_1: ended("+value+";"+start + ";"+end+")");
+			}
+		});
+		inputs_circle['circlebutton_1'].default_value = 20;
+
+		function reset()
+		{
+			$("#panel1 .circlebutton-content").each(function (index, element) {
+				var value = inputs_circle[this.id].default_value;
+				inputs_circle[this.id].setValue(value);
+			});
+		}
+		
+		var c2 = $("#circlebutton_2").inputRotator({
+			sensibility: 5,
+			degreeMin : 0,
+			degreeMax : 360,
+			defaultPosition: "center",
+			onchange: function(val) {
+				console.log("circlebutton_2: "+val);
+			}
+		});
+
+		var c3 = $("#circlebutton_3").inputRotator({
+			sensibility: 15,
+			degreeMax : 360,
+			defaultPosition: "right",
+			onchange: function(val) {
+				console.log("circlebutton_3: "+val);
+			}
+		});
+    </script>
+</body>
+</html>
