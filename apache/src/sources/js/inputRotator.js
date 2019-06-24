@@ -136,7 +136,7 @@ $.fn.inputRotator = function(params={})
            return;
 		
 		var pageY = 0;
-		if(e.type == "mousedown")
+		if(e.type == "mousemove")
 			pageY = e.pageY;
 		else
 			pageY = e.touches[0].pageY;
@@ -379,10 +379,6 @@ $.fn.inputRotator = function(params={})
 		this.obj.attr("draggable", "false");
 		this.obj.attr("ondragstart", "return false;");
 		this.obj.append(content);
-
-		function newFunction() {
-			console.log(path);
-		}
 	}
 
 	function getPath()
